@@ -145,6 +145,8 @@ def player_by_number(number)
   end
 end
 
+p player_by_number(33)
+
 
 def shoe_size(name)
     game_hash.each do |team, team_info|
