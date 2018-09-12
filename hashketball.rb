@@ -118,33 +118,12 @@ end
 
 
 
-# require "pry"
-# def good_practices
-#   game_hash.each do |location, team_data|
-#     #are you ABSOLUTELY SURE what 'location' and 'team data' are? use binding.pry to find out!
-#     binding.pry
-#       team_data.each do |attribute, data|
-#         #are you ABSOLUTELY SURE what 'attribute' and 'team data' are? use binding.pry to find out!
-#         binding.pry
- 
-#         #what is 'data' at each loop through out .each block? when will the following line of code work and when will it break?
-#         data.each do |data_item|
-#             binding.pry
-#       end
-#     end
-#   end
-# end
-
-
-# puts good_practices
-
-
-
-
-
 def num_points_scored(name)
+  
   game_hash.each do |team, team_info|
+    
     team_info[:players].each do |player, stats|
+      
       if player == name
         return stats[:points]
       end
@@ -164,22 +143,23 @@ def shoe_size(name)
 end
 
 end
+
   
 def team_colors(team)
-  game_hash.each do |teams, info|
-    if info[:team_name] == team
-      return (info[:colors].collect do |color|
-         color
-      end)
+  game_hash.each do |teams, team_info|
+    if team_info[:team_name] == team
+      return team_info[:colors]
     end
   end
 end
 
+
+
 # require "pry"
 def team_names
   array = []
-  game_hash.each do |teams, names|
-    array << names[:team_name]
+  game_hash.each do |teams, team_info|
+    array << team_info[:team_name]
  end
  return array
 end
@@ -189,20 +169,22 @@ end
   def player_numbers(name_team)
     array = []
     
-    game_hash.each do |team, info|
-      if name_team == info[:team_name]
-        info[:players].each do |name, stats|
+    game_hash.each do |team, team_info|
+      if name_team == team_info[:team_name]
+        team_info[:players].each do |name, stats|
           array << stats[:number]
         end
       end
     end
     return array 
   end
-     
-  def player_stats(name)
+  
 
-game_hash.each do |team, info|
-  info[:players].each do |names, stats|
+def player_stats(name)
+
+game_hash.each do |team, team_info|
+  team_info[:players].each do |names, stats|
+  
     if names == name
     return stats
   end
@@ -217,8 +199,8 @@ def big_shoe_rebounds
   biggest_shoe = 0
   rebound_num = 0
   
-  game_hash.each do |team, info|
-    info[:players].each do |name, stats|
+  game_hash.each do |team, team_info|
+    team_info[:players].each do |name, stats|
       
    if stats[:shoe] > biggest_shoe
      
@@ -231,6 +213,47 @@ def big_shoe_rebounds
    rebound_num
 end
 
+def most_points_scored
+  
+  most_points = 0
+  
+  game_hash.each do |team, team_info|
+    team_info[:players].each do |player, stats|
+      if stats[:points] > most_points
+        
+        most_points = stats[:points]
+        player_name = team_info[:players]
+      end
+    end
+  end
+  player_name
+end
 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
