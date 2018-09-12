@@ -136,7 +136,7 @@ require "pry"
 def player_by_number(number)
   
   game_hash.each do |team, team_info|
-    team_info[:players].each do |players, stats|
+    team_info[:players].each do |player, stats|
       if stats[:number] == number
          player
         binding.pry
