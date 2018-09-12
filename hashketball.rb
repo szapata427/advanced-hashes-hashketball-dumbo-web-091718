@@ -193,7 +193,7 @@ end
 end
 
 
-# require "pry"
+
 def big_shoe_rebounds
   
   biggest_shoe = 0
@@ -206,28 +206,37 @@ def big_shoe_rebounds
      
     biggest_shoe = stats[:shoe]
     rebound_num = stats[:rebounds]
-    # binding.pry
     end
   end
   end
    rebound_num
 end
 
-# def most_points_scored
+
+
+def most_points_scored
   
-#   most_points = 0
+  most_points = 0
+  player_name = ""
   
-#   game_hash.each do |team, team_info|
-#     team_info[:players].each do |player, stats|
-#       if stats[:points] > most_points
+  game_hash.each do |team, team_info|
+    team_info[:players].each do |player, stats|
+      if stats[:points] > most_points
         
-#         most_points = stats[:points]
-#         player_name = team_info[:players]
-#       end
-#     end
-#   end
-#   player_name
-# end
+        most_points = stats[:points]
+        end
+        
+         game_hash.each do |team, team_info|
+    team_info[:players].each do |player, stats|
+        if stats[:points] == most_points
+           player_name = player
+        end
+      end
+    end
+  end
+end
+player_name
+end
 
   
   
