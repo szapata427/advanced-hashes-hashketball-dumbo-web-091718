@@ -242,7 +242,11 @@ end
   def winning_team
   
   game_hash.each do |team, team_info|
-    
+    team_info[:players].each do |player, stats|
+      stats[:points]
+    end
+  end
+end
   
   
   
