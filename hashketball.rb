@@ -132,6 +132,19 @@ end
 
 end
 
+require "pry"
+def player_by_number(number)
+  
+  game_hash.each do |team, team_info|
+    team_info[:players].each do |players, stats|
+      if stats{:number] == number
+         player
+        binding.pry
+      end
+  end
+  end
+end
+
 
 def shoe_size(name)
     game_hash.each do |team, team_info|
